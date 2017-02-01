@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Practice</title>
+        <meta charset="utf-8">
+    
+    <style>
+        body{
+            background-image: url("map.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top, center;
+            }
+        
+        #pin{
+            position:absolute;
+            top:0;
+            left:0;
+            height: 50px;
+            z-index: -1;
+            
+        }
+        
+        
+        </style>    
+    </head>
+    
+    <body>
+        <button id="rp">Red pin</button>
+        <button id="bp">Blue pin</button>
+        <button id="u">Up</button>
+        <button id="d">Down</button>
+        <button id="l">Left</button>
+        <button id="r">Right</button>
+        <button id="cm">Create mark</button>
+        
+        <input type="number" id="n1">
+        <input type="number" id="n2">
+        
+        <img id="pin" name="pin" src="bpin.png" alt="bpin">
+        
+        
+        
+        <script>
+            var pin = document.getElementById("pin");
+            var num = 5;
+            
+            var in1 = document.getElementById("n1");
+            var in2 = document.getElementById("n2");
+            
+            var lp = parseInt(pin.style.left || 0);
+            var tp = parseInt(pin.style.top || 0);
+            
+            
+            var rp = document.getElementById("rp");
+            rp.addEventListener("click", function(){
+            document.pin.src="rpin.png";    
+            });
+            
+            var bp = document.getElementById("bp");
+            bp.addEventListener("click", function(){
+            document.pin.src="bpin.png";
+            });
+            
+            
+            
+            var u = document.getElementById("u");
+            u.addEventListener("click", function(){
+                console.log("up");
+                num = num - 5;
+                pin.style.top = num +"px";
+            });
+            
+            var d = document.getElementById("d");
+            d.addEventListener("click", function(){
+                console.log("down");
+                num = num + 5;
+                pin.style.top = num + "px";
+            });
+            
+            var num2 = 5;
+            
+            
+            var l = document.getElementById("l");
+            l.addEventListener("click", function(){
+                console.log("left");
+                num2 = num2 - 5;
+                pin.style.left = num2 + "px";
+            });
+
+            
+            var r = document.getElementById("r");
+            r.addEventListener("click", function(){
+                console.log("right");
+                num2 = num2 + 5;
+                pin.style.left = num2 + "px";
+            });
+            
+            var cm = document.getElementById("cm");
+            
+            cm.addEventListener("click", function(){
+                console.log("create");
+                
+                
+                var cm = document.createElement("img");
+                cm.src = pin.src;
+                
+                cm.id = "pin";
+                
+                cm.style.top = num + "px";
+                cm.style.left = num2 + "px";
+                
+                document.body.appendChild(cm);
+                n1.value = num;
+                n2.value = num2;
+                
+            });
+            
+            
+            
+            
+            
+        </script>
+</body>
+</html>
